@@ -93,7 +93,7 @@ def print_report(data):
 
     best_rating = top_rated(recipes)
 
-    print(f"Top rated: {best_rating['name']} ({best_rating['rating']}) ")
+    print(f"Top rated: {best_rating['name']}({best_rating['rating']}) ")
 
     counts = avgerage_calories(recipes)
     print(f'Average calories: {counts:.1f}')
