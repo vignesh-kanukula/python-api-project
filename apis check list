@@ -1,0 +1,36 @@
+API inspection checklist
+
+Run this every time, straight after fetch_json, before writing any function.
+
+1. Did it load?
+ Is it None? If so, the URL, the internet or the status code is wrong. Stop here.
+2. What shape is it?
+ type(data): a list or a dict? This decides whether you loop over it or use a key.
+ len(data): how many items? Is that what you expected?
+ If it’s a dict: check data.keys(). The list you want is often inside one key, e.g. data['results'].
+3. What does ONE item look like?
+ print(data[0]): look at a single item
+ data[0].keys(): copy the key names exactly (userId, not user_id; lng, not long)
+ Nesting: which values are themselves a { dict or a [ list? Draw the levels as a comment.
+4. Are the types what you need?
+ Numbers: a real number, or text that looks like one ('-37.31')? Check with type(...). Text needs safe_float/safe_int.
+ True/False: a real True, or the text 'true'?
+ Missing or empty values: do some items have '', None, or a missing key?
+5. Is it the same in every item?
+ Print 2–3 items (data[:3]), not just the first. Do they all have the same keys?
+6. With 2 APIs, what links them?
+ Which key in API A matches which key in API B? (e.g. todo userId → user id)
+ Are both the same type? A number 5 doesn’t match the text '5'.
+7. Write it down
+ A shape comment at the top of your notes file, e.g.
+# todos = list of 200 dicts: {userId: int, id: int, title: str, completed: bool}
+
+The code to paste into your notes file each time:
+
+python
+print(data is None)
+print(type(data), len(data))
+print(data[0])
+print(data[0].keys())
+print(data[:3])
+print(type(data[0]['SOME_KEY']))     # check any value you'll do maths with
