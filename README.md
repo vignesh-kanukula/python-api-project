@@ -7,7 +7,7 @@ from public APIs, process it, and print checked reports.
 - `helpers.py` – shared tools: safe API fetching with error handling
 - `capstone.py` – recipes report: grouping, nested loops, self-check
 - `todos_names.py` – joins two APIs with a lookup table
-- ... (add 2–3 more of your best ones)
+-`capstone2.py` – carts: nested quantities, a self-check, formating data from nested lists and dictionaries
 
 ## Skills shown
 - Fetching and handling API data (`requests`, status codes, errors)
